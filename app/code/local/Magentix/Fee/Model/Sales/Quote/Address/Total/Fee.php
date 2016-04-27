@@ -34,9 +34,11 @@ class Magentix_Fee_Model_Sales_Quote_Address_Total_Fee extends Mage_Sales_Model_
 
         $quote = $address->getQuote();
 
-        if (Magentix_Fee_Model_Fee::canApply($address)) {
+        $fee = Mage::getModel('fee/fee');
+        
+        if ($fee->canApply($address)) {
             $exist_amount = $quote->getFeeAmount();
-            $fee = Magentix_Fee_Model_Fee::getFee();
+            $fee = $fee->getFee();
             $balance = $fee - $exist_amount;
 
             $address->setFeeAmount($balance);

@@ -21,7 +21,7 @@ How to use?
 
 This is only basics of the adding a line item to order total, you must define your own rules in code.
 
-Edit "Magentix_Fee_Model_Fee" class to set fee amount and your business logic to check if fee should be applied or not :
+Rewrite "Magentix_Fee_Model_Fee" class to set fee amount and your business logic to check if fee should be applied or not :
 
 ```
 const FEE_AMOUNT = 20;
@@ -39,7 +39,7 @@ Example : Apply 5$ fee if Shipping Address is outside France :
 
 
 ```
-class Magentix_Fee_Model_Fee extends Varien_Object
+class MyRewrite_Fee_Model_Fee extends Varien_Object
 {
 
     /**
